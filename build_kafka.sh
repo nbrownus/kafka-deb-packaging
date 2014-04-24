@@ -4,12 +4,13 @@ set -u
 
 PKG_NAME="kafka"
 VERSION="0.8.1"
+SCALA_VERSION="2.9.2"
 DESCRIPTION="Apache Kafka is a distributed publish-subscribe messaging system."
 URL="https://kafka.apache.org/"
 ARCH="all"
 SECTION="misc"
 LICENSE="Apache Software License 2.0"
-SRC_PACKAGE="kafka-${VERSION}-src.tgz"
+SRC_PACKAGE="kafka_${SCALA_VERSION}-${VERSION}.tgz"
 DOWNLOAD_URL="http://apache.cs.utah.edu/kafka/${VERSION}/${SRC_PACKAGE}"
 ORIG_DIR="$(pwd)"
 BUILD_VERSION=
@@ -65,11 +66,7 @@ cp "${ORIG_DIR}/kafka-broker.default" "build/etc/default/kafka-broker"
 cp "${ORIG_DIR}/kafka-broker.upstart.conf" "build/etc/init/kafka-broker.conf"
 
 tar zxf "${ORIG_DIR}/${SRC_PACKAGE}"
-cd "kafka-${VERSION}-src"
-
-./sbt update
-./sbt package
-./sbt assembly-package-dependency
+cd "kafka_${SCALA_VERSION}-${VERSION}"
 
 patch -p0 < "${ORIG_DIR}/kafka-bin.patch"
 

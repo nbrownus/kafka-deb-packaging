@@ -1,6 +1,7 @@
-diff -rupN bin/kafka-console-consumer.sh bin/kafka-console-consumer.sh
---- bin/kafka-console-consumer.sh	2014-02-20 06:46:38.635706202 +0000
-+++ bin/kafka-console-consumer.sh	2014-02-20 06:41:29.362715093 +0000
+diff --git bin/kafka-console-consumer.sh bin/kafka-console-consumer.sh
+index b86ea56..e410dde 100755
+--- bin/kafka-console-consumer.sh
++++ bin/kafka-console-consumer.sh
 @@ -14,5 +14,8 @@
  # See the License for the specific language governing permissions and
  # limitations under the License.
@@ -11,9 +12,10 @@ diff -rupN bin/kafka-console-consumer.sh bin/kafka-console-consumer.sh
 +fi
 +
  exec $(dirname $0)/kafka-run-class.sh kafka.consumer.ConsoleConsumer $@
-diff -rupN bin/kafka-console-producer.sh bin/kafka-console-producer.sh
---- bin/kafka-console-producer.sh	2014-02-20 06:46:38.635706202 +0000
-+++ bin/kafka-console-producer.sh	2014-02-20 06:41:47.267004035 +0000
+diff --git bin/kafka-console-producer.sh bin/kafka-console-producer.sh
+index ec0f21f..cd8ce62 100755
+--- bin/kafka-console-producer.sh
++++ bin/kafka-console-producer.sh
 @@ -14,5 +14,7 @@
  # See the License for the specific language governing permissions and
  # limitations under the License.
@@ -23,9 +25,10 @@ diff -rupN bin/kafka-console-producer.sh bin/kafka-console-producer.sh
 +    export KAFKA_HEAP_OPTS="-Xmx512M"
 +fi
  exec $(dirname $0)/kafka-run-class.sh kafka.producer.ConsoleProducer $@
-diff -rupN bin/kafka-consumer-perf-test.sh bin/kafka-consumer-perf-test.sh
---- bin/kafka-consumer-perf-test.sh	2014-02-20 06:46:38.635706202 +0000
-+++ bin/kafka-consumer-perf-test.sh	2014-02-20 06:42:04.715285619 +0000
+diff --git bin/kafka-consumer-perf-test.sh bin/kafka-consumer-perf-test.sh
+index 38c56c7..4ed3ed9 100755
+--- bin/kafka-consumer-perf-test.sh
++++ bin/kafka-consumer-perf-test.sh
 @@ -14,5 +14,7 @@
  # See the License for the specific language governing permissions and
  # limitations under the License.
@@ -35,9 +38,10 @@ diff -rupN bin/kafka-consumer-perf-test.sh bin/kafka-consumer-perf-test.sh
 +    export KAFKA_HEAP_OPTS="-Xmx512M"
 +fi
  exec $(dirname $0)/kafka-run-class.sh kafka.perf.ConsumerPerformance $@
-diff -rupN bin/kafka-producer-perf-test.sh bin/kafka-producer-perf-test.sh
---- bin/kafka-producer-perf-test.sh	2014-02-20 06:46:38.635706202 +0000
-+++ bin/kafka-producer-perf-test.sh	2014-02-20 06:42:43.499911532 +0000
+diff --git bin/kafka-producer-perf-test.sh bin/kafka-producer-perf-test.sh
+index d75ab7d..b4efc29 100755
+--- bin/kafka-producer-perf-test.sh
++++ bin/kafka-producer-perf-test.sh
 @@ -14,5 +14,7 @@
  # See the License for the specific language governing permissions and
  # limitations under the License.
@@ -47,9 +51,10 @@ diff -rupN bin/kafka-producer-perf-test.sh bin/kafka-producer-perf-test.sh
 +    export KAFKA_HEAP_OPTS="-Xmx512M"
 +fi
  exec $(dirname $0)/kafka-run-class.sh kafka.perf.ProducerPerformance $@
-diff -rupN bin/kafka-run-class.sh bin/kafka-run-class.sh
---- bin/kafka-run-class.sh	2014-02-20 06:46:38.635706202 +0000
-+++ bin/kafka-run-class.sh	2014-02-20 06:43:41.572848724 +0000
+diff --git bin/kafka-run-class.sh bin/kafka-run-class.sh
+index 2bc345d..bb4c702 100755
+--- bin/kafka-run-class.sh
++++ bin/kafka-run-class.sh
 @@ -22,12 +22,6 @@ fi
  
  base_dir=$(dirname $0)/..
@@ -63,10 +68,11 @@ diff -rupN bin/kafka-run-class.sh bin/kafka-run-class.sh
  if [ -z "$SCALA_VERSION" ]; then
  	SCALA_VERSION=2.8.0
  fi
-diff -rupN bin/kafka-server-start.sh bin/kafka-server-start.sh
---- bin/kafka-server-start.sh	2014-02-20 06:46:38.635706202 +0000
-+++ bin/kafka-server-start.sh	2014-02-20 06:44:30.305635184 +0000
-@@ -20,6 +20,13 @@ then
+diff --git bin/kafka-server-start.sh bin/kafka-server-start.sh
+index 7050649..1737d0c 100755
+--- bin/kafka-server-start.sh
++++ bin/kafka-server-start.sh
+@@ -20,8 +20,14 @@ then
  	exit 1
  fi
  base_dir=$(dirname $0)
@@ -80,11 +86,13 @@ diff -rupN bin/kafka-server-start.sh bin/kafka-server-start.sh
 +if [ "x$KAFKA_HEAP_OPTS" = "x" ]; then
 +    export KAFKA_HEAP_OPTS="-Xmx1G -Xms1G"
 +fi
-+
- exec $base_dir/kafka-run-class.sh daemon kafkaServer kafka.Kafka $@
-diff -rupN bin/kafka-simple-consumer-perf-test.sh bin/kafka-simple-consumer-perf-test.sh
---- bin/kafka-simple-consumer-perf-test.sh	2014-02-20 06:46:38.635706202 +0000
-+++ bin/kafka-simple-consumer-perf-test.sh	2014-02-20 06:44:54.682028575 +0000
+ 
+ EXTRA_ARGS="-name kafkaServer -loggc"
+ 
+diff --git bin/kafka-simple-consumer-perf-test.sh bin/kafka-simple-consumer-perf-test.sh
+index c466cc8..58a487e 100755
+--- bin/kafka-simple-consumer-perf-test.sh
++++ bin/kafka-simple-consumer-perf-test.sh
 @@ -14,5 +14,8 @@
  # See the License for the specific language governing permissions and
  # limitations under the License.
@@ -95,9 +103,10 @@ diff -rupN bin/kafka-simple-consumer-perf-test.sh bin/kafka-simple-consumer-perf
 +fi
 +
  exec $(dirname $0)/kafka-run-class.sh kafka.perf.SimpleConsumerPerformance $@
-diff -rupN bin/kafka-simple-consumer-shell.sh bin/kafka-simple-consumer-shell.sh
---- bin/kafka-simple-consumer-shell.sh	2014-02-20 06:46:38.635706202 +0000
-+++ bin/kafka-simple-consumer-shell.sh	2014-02-20 06:45:04.914193704 +0000
+diff --git bin/kafka-simple-consumer-shell.sh bin/kafka-simple-consumer-shell.sh
+index 9316f79..fee8ea9 100755
+--- bin/kafka-simple-consumer-shell.sh
++++ bin/kafka-simple-consumer-shell.sh
 @@ -14,4 +14,8 @@
  # See the License for the specific language governing permissions and
  # limitations under the License.
@@ -107,3 +116,4 @@ diff -rupN bin/kafka-simple-consumer-shell.sh bin/kafka-simple-consumer-shell.sh
 +fi
 +
  exec $(dirname $0)/kafka-run-class.sh kafka.tools.SimpleConsumerShell $@
+
