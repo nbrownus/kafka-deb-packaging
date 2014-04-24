@@ -3,7 +3,7 @@ set -e
 set -u
 
 PKG_NAME="kafka"
-VERSION="0.8.0"
+VERSION="0.8.1"
 DESCRIPTION="Apache Kafka is a distributed publish-subscribe messaging system."
 URL="https://kafka.apache.org/"
 ARCH="all"
